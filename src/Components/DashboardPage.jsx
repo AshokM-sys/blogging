@@ -134,7 +134,7 @@ const DashboardPage = () => {
           <td>
             {post.image && (
               <img
-                src={`/${post.image}`} // Assuming image path is public and stored in 'uploads'
+                src={`/${post.image}`} 
                 alt={post.title}
                 className="img-thumbnail"
                 style={{

@@ -1,32 +1,24 @@
-import dotenv from "dotenv";
-import mysql from "mysql2";
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
 
-// Load environment variables from the .env file
+// Load environment variables from .env file
 dotenv.config();
 
-// Use DB_URL if available, otherwise use individual variables
-const dbUrl = process.env.DB_URL;
-let db;
+// Create a MySQL connection using environment variables
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
 
-if (dbUrl) {
-  // If DB_URL is provided, parse it to extract the components
-  const url = new URL(dbUrl);
-
-  db = mysql.createConnection({
-    host: url.hostname,
-    user: url.username,
-    password: url.password,
-    database: url.pathname.split('/')[1], // Extract database name from URL
-    port: url.port,
-  });
-} else {
-  // Fallback to using individual environment variables if DB_URL is not available
-  db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-  });
-}
+// Connect to the database
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database: ', err.stack);
+    return;
+  }
+  console.log('Connected to the MySQL database!');
+});
 
 export default db;
