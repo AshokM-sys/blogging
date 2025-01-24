@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: 'src', // This tells Vite to treat 'src' as the root directory
+  root: './src',  // If your source code is inside the src folder
   build: {
-    outDir: '../dist', // Output folder for the build
     rollupOptions: {
-      input: '/src/main.jsx', // The entry point of your app
-    },
-  },
+      input: './src/main.jsx', // Set the entry point here
+    }
+  }
 });
