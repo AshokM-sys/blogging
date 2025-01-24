@@ -5,12 +5,13 @@
   "type": "module",
   "homepage": "https://AshokM-sys.github.io/blogging",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "concurrently \"npm run start-backend\" \"npm run preview\"",
-  "start-backend": "nodemon server.js"
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "backend": "nodemon server.js", 
+    "frontend": "vite",
+    "start": "node server.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
