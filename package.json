@@ -9,7 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "nodemon server.js"
+    "start": "concurrently \"npm run start-backend\" \"npm run preview\"",
+  "start-backend": "nodemon server.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
