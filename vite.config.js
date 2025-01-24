@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    open: true,
+  root: 'src', // This tells Vite to treat 'src' as the root directory
+  build: {
+    outDir: '../dist', // Output folder for the build
+    rollupOptions: {
+      input: '/src/main.jsx', // The entry point of your app
+    },
   },
 });
