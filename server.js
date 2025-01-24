@@ -10,8 +10,8 @@ const app = express();
 // CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Your React app's address
-    methods: ["GET", "POST", "OPTIONS"],
+    origin: "https://blogging-2-7onm.onrender.com",  // Replace with your actual frontend URL (Render URL)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
